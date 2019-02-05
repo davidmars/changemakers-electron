@@ -28,8 +28,8 @@
 <meta property="og:image:width" content="500">
 <meta property="og:image:height" content="400">
 <meta property="og:type" content="article">
-<link rel="shortcut icon" href="../project/logo.png">
-<link rel='stylesheet' href='../dist/app.css?v=2019-02-05-090359'></head>
+<link rel="shortcut icon" href="../favicon.png">
+<link rel='stylesheet' href='../dist/app.css?v=2019-02-05-130207'></head>
 <body>
     <div id="root" history-hrefs>
 
@@ -53,7 +53,7 @@
                         <div class="col-md-3">
                 <hr>
                 <ul context-menu-size="small">    <li >
-        <a  data-href-uid="page-1" class="" href="../fr/.html">Home page</a>
+        <a  data-href-uid="page-1" class="" href="../fr/index.html">Home page</a>
     </li>
     <li >
         <a  data-href-uid="page-2" class="" href="../fr/ma-page-1.p2.html">Ma page 1</a>
@@ -62,7 +62,7 @@
                         <div class="col-md-3">
                 <hr>
                 <ul context-menu-size="small">    <li >
-        <a  data-href-uid="page-1" class="" href="../fr/.html">eeeeefe</a>
+        <a  data-href-uid="page-1" class="" href="../fr/index.html">eeeeefe</a>
     </li>
     <li >
         <a  data-href-uid="page-2" class="" href="../fr/ma-page-1.p2.html">Ma page 1</a>
@@ -71,7 +71,7 @@
                         <div class="col-md-3">
                 <hr>
                 <ul context-menu-size="small">    <li >
-        <a  data-href-uid="page-1" class="" href="../fr/.html">Home page</a>
+        <a  data-href-uid="page-1" class="" href="../fr/index.html">Home page</a>
     </li>
     <li >
         <a  data-href-uid="page-2" class="" href="../fr/ma-page-1.p2.html">Ma page 1</a>
@@ -94,7 +94,7 @@
 
         <a class="logo bgimg-cover"
            style="background-image: url('../project/logo.png')"
-           href="../fr/.html"></a>
+           href="../fr/index.html"></a>
 
         <button data-nav-menu-toggle class="burger d-flex d-xl-none unstyled">
             <svg class="svg svg-startup-burger"><use class="svg svg-startup-burger" xlink:href="#startup-burger"></use></svg>            <svg class="svg svg-startup-close"><use class="svg svg-startup-close" xlink:href="#startup-close"></use></svg>        </button>
@@ -104,7 +104,7 @@
     <div id="nav-content">
 
         <ul list-horizontal="true" context-menu-size="small" class="menu">    <li >
-        <a  data-href-uid="page-1" class="" href="../fr/.html">Home page</a>
+        <a  data-href-uid="page-1" class="" href="../fr/index.html">Home page</a>
     </li>
     <li >
         <a  data-href-uid="page-2" class="" href="../fr/ma-page-1.p2.html">Ma page 1</a>
@@ -245,8 +245,49 @@
 </body>
 </html>
 <script>
-var LayoutVars={"rootUrl":"\/github\/changemakers\/fr","fmkHttpRoot":"\/github\/changemakers","googleAnalyticsId":null,"translations":[],"isStatic":"1","isModeDev":false,"wysiwyg":false,"assets":{"javascriptHeader":[],"javascriptFooter":["\/vendor\/davidmars\/pov-2018\/dist\/pov-boot.js","\/dist\/app.js"]}};
+var LayoutVars={"rootUrl":"\/github\/changemakers\/fr","fmkHttpRoot":"\/github\/changemakers","googleAnalyticsId":null,"translations":[],"isModeDev":false,"isExportStatic":"1","wysiwyg":false,"assets":{"javascriptHeader":[],"javascriptFooter":["\/vendor\/davidmars\/pov-2018\/dist\/pov-boot.js","\/dist\/app.js"]}};
 var pageInfo={"uid":"page-19","recordId":"19","recordType":"page","languagesUrls":{"fr":"http:\/\/localhost\/github\/changemakers\/fr\/_.p19","en":"http:\/\/localhost\/github\/changemakers\/en\/_.p19"}};
 var meta={"title":"Simon Biles","description":null,"keywords":null,"author":null,"langCode":null,"favicon":null,"themeColor":null};
 </script>
-<script src='../vendor/davidmars/pov-2018/dist/pov-boot.js?v=2019-02-05-090359'></script><script src='../dist/app.js?v=2019-02-05-090359'></script>
+<script src='../vendor/davidmars/pov-2018/dist/pov-boot.js?v=2019-02-05-130207'></script><script src='../dist/app.js?v=2019-02-05-130207'></script><script>/**
+ * Ce script permet de gérer la navigation ajax pour les sites exportés en statique
+ */
+if(LayoutVars.isExportStatic){
+    console.log("Static version");
+    /**
+     * Charge l'url en ajax json
+     * @param {string} url
+     * @param {function} cb eventuellement fonction de callback qui permet d'injecter comme on veut le html
+     */
+    PovHistory.loadPage=function(url,cb){
+        Pov.events.dispatchDom($body,EVENTS.HISTORY_CHANGE_URL_LOADING);
+        console.log("Static page load");
+        $.ajax({
+            dataType: "json",
+            url: url+".json",
+            data: {
+                povHistory:true
+            },
+            success: function(e){
+                //console.log("loadED page",url);
+                //console.log("loadED page result",e);
+                Pov.events.dispatchDom($body,EVENTS.HISTORY_CHANGE_URL_LOADED);
+                if(cb){
+                    cb(e);
+                }else{
+                    if(e.json.meta){
+                        PovHistory.setMeta(e.json.meta);
+                        PovHistory.currentPageInfo=e.json.pageInfo;
+                    }
+                    if(e.html){
+                        PovHistory.injectHtml(e.html);
+                    }
+
+                }
+            },
+            error:function(e,t,err){
+                Xdebug.fromString(e.responseText);
+            }
+        });
+    }
+}</script>

@@ -23,7 +23,7 @@ function createWindow () {
     mainWindow.setAlwaysOnTop(true, "main-menu");
     mainWindow.webContents.openDevTools();
     mainWindow.setMenuBarVisibility(false);
-    //mainWindow.maximize();
+    mainWindow.maximize();
   }else{
     mainWindow.setFullScreen(true);
   }
