@@ -1,10 +1,12 @@
 {
-  "name": "electron-quick-start",
+  "name": "change-makers",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Change Makers",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder",
+    "publish": "build -p always"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +19,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^4.0.3"
+    "electron": "^4.0.3",
+    "electron-builder": "^20.38.5"
   }
 }

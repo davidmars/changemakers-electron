@@ -1,0 +1,32 @@
+{
+    "errors": [],
+    "messages": [],
+    "logs": [],
+    "success": true,
+    "html": "    <div class=\"py-big\">\r\n\r\n        <div class=\"container\">\r\n            <h1 class=\"mb-big\">lina ragke<\/h1>        <\/div>\r\n\r\n        <div class=\"blocks\"><\/div>\r\n\r\n\r\n\r\n\r\n<\/div>\r\n",
+    "when": {
+        "date": "2019-02-05 09:03:53.444409",
+        "timezone_type": 3,
+        "timezone": "Europe\/Berlin"
+    },
+    "json": {
+        "meta": {
+            "title": "lina ragke",
+            "description": null,
+            "keywords": null,
+            "author": null,
+            "langCode": null,
+            "favicon": null,
+            "themeColor": null
+        },
+        "pageInfo": {
+            "uid": "page-9",
+            "recordId": "9",
+            "recordType": "page",
+            "languagesUrls": {
+                "fr": "http:\/\/localhost\/github\/changemakers\/fr\/_.p9",
+                "en": "http:\/\/localhost\/github\/changemakers\/en\/_.p9"
+            }
+        }
+    }
+}

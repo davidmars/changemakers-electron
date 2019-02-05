@@ -1,16 +1,32 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron');
+const electron = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+const isDevelopment = process.mainModule.filename.indexOf('app.asar') === -1;
+
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 1400, height: 700})
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('content/fr/index.html')
+
+  if(isDevelopment){
+    //déplace la fenetre sur 2 eme écran
+    if(electron.screen.getAllDisplays().length>1){
+      mainWindow.setPosition(electron.screen.getAllDisplays()[1].bounds.x,0);
+    }
+    mainWindow.setAlwaysOnTop(true, "main-menu");
+    mainWindow.webContents.openDevTools();
+    mainWindow.setMenuBarVisibility(false);
+    //mainWindow.maximize();
+  }else{
+    mainWindow.setFullScreen(true);
+  }
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

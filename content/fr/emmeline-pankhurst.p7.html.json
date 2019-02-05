@@ -1,0 +1,32 @@
+{
+    "errors": [],
+    "messages": [],
+    "logs": [],
+    "success": true,
+    "html": "    <div class=\"py-big\">\r\n\r\n        <div class=\"container\">\r\n            <h1 class=\"mb-big\">emmeline pankhurst<\/h1>        <\/div>\r\n\r\n        <div class=\"blocks\"><\/div>\r\n\r\n\r\n\r\n\r\n<\/div>\r\n",
+    "when": {
+        "date": "2019-02-05 09:03:52.061405",
+        "timezone_type": 3,
+        "timezone": "Europe\/Berlin"
+    },
+    "json": {
+        "meta": {
+            "title": "emmeline pankhurst",
+            "description": null,
+            "keywords": null,
+            "author": null,
+            "langCode": null,
+            "favicon": null,
+            "themeColor": null
+        },
+        "pageInfo": {
+            "uid": "page-7",
+            "recordId": "7",
+            "recordType": "page",
+            "languagesUrls": {
+                "fr": "http:\/\/localhost\/github\/changemakers\/fr\/_.p7",
+                "en": "http:\/\/localhost\/github\/changemakers\/en\/_.p7"
+            }
+        }
+    }
+}

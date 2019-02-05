@@ -1,0 +1,32 @@
+{
+    "errors": [],
+    "messages": [],
+    "logs": [],
+    "success": true,
+    "html": "    \r\n<div class=\"container py-big\">\r\n    <h1>Ceci est la page index.php<\/h1>\r\n    Bonjour olympique<\/div>\r\n",
+    "when": {
+        "date": "2019-02-05 09:03:46.606847",
+        "timezone_type": 3,
+        "timezone": "Europe\/Berlin"
+    },
+    "json": {
+        "meta": {
+            "title": "Home page",
+            "description": null,
+            "keywords": null,
+            "author": null,
+            "langCode": null,
+            "favicon": null,
+            "themeColor": null
+        },
+        "pageInfo": {
+            "uid": "page-1",
+            "recordId": "1",
+            "recordType": "page",
+            "languagesUrls": {
+                "fr": "http:\/\/localhost\/github\/changemakers\/fr\/_.p1",
+                "en": "http:\/\/localhost\/github\/changemakers\/en\/_.p1"
+            }
+        }
+    }
+}
